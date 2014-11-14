@@ -33,7 +33,7 @@ paramiko.util.log_to_file('/tmp/publish_doppio.log')
 
 class PublishDoppio:
     """
-    public doppio to server.
+    publish doppio to server.
     step 1: zip the files
     step 2: transfer files(via scp)
     step 3: login server & unzip files & restart node.js server(need sudo)
