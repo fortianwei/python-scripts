@@ -2,7 +2,12 @@
 
 __AUTHER__ = 'tianwei'
 __DATE__ = '2014-11-07'
-
+"""
+发布本地的一个工程到服务器上,但是因为太大,不是任何文件都要拷贝的
+因此将本地需要的文件压缩打包在上传到服务器
+用到了zip/ssh相关需要的库类
+以及如何在服务器上使用sudo命令去执行命令
+"""
 import os
 import os.path
 import paramiko
