@@ -1,26 +1,4 @@
 #coding=utf-8
-
-fizz = map(lambda x:(x%3==0 or (str(3) in str(x))) and "Fizz" or "",range(1,101))
-bizz = map(lambda x:(x%5==0 and not (str(3) in str(x)))and 'Bizz' or "",range(1,101))
-whizz = map(lambda x:(x%7==0 and not (str(3) in str(x)))and "Whizz" or "",range(1,101))
-print fizz
-print bizz
-print whizz
-xxx = [fizz[i]+bizz[i]+whizz[i] or i+1 for i in range(100)]
-print xxx
-f = lambda a,b,c:[map(lambda x:(x%a==0 or (str(a) in str(x))) and "Fizz" or "",range(1,101))[i]+map(lambda x:(x%b==0 and not (str(a) in str(x)))and 'Bizz' or "",range(1,101))[i]+map(lambda x:(x%c==0 and not (str(a) in str(x)))and "Whizz" or "",range(1,101))[i] or i+1 for i in range(100)]
-print f(3,5,7)
-f = lambda a,b,c:[(str(a) in str(i) and  "Fizz") or ((i%a == 0 and "Fizz" or "")+(i%b == 0 and "Bizz" or "")+(i%c == 0 and "Whizz" or "")) or i for i in xrange(1,101)]
-print f(3,5,7)
-f = lambda a,b,c :["Fizz"*(str(a) in str(i)) or ("Fizz"*(i%a==0)+"Bizz"*(i%b==0) +"Whizz"*(i%c==0)) or i for i in range(1,101)]
-print f(3,5,7)
-f = lambda  x:x+1
-print f and "hello" or "world"
-
-print "hello" * 0   #结果为""
-print "hello" * 1   #结果为"hello"
-print "hello"*(not "hi")#结果为'',"hi"具有True含义,然后not之后为False,具有0含义
-print "hello"*(not {})#结果为hello,{}具有False含义,然后not之后为True,具有0含义
 """
 ThoughtWorks面试题:
 
@@ -36,7 +14,38 @@ ThoughtWorks面试题:
 
 第一反应就是,需要得到三个列表,分别对应某个数在fizz,bizz和whizz方面的分量,最后进行总和相加
 假设三个特殊数字是 3 5 7
+"""
 
+
+"""
+以下为草稿...
+"""
+fizz = map(lambda x:(x%3==0 or (str(3) in str(x))) and "Fizz" or "",range(1,101))
+bizz = map(lambda x:(x%5==0 and not (str(3) in str(x)))and 'Bizz' or "",range(1,101))
+whizz = map(lambda x:(x%7==0 and not (str(3) in str(x)))and "Whizz" or "",range(1,101))
+print fizz
+print bizz
+print whizz
+xxx = [fizz[i]+bizz[i]+whizz[i] or i+1 for i in range(100)]
+print xxx
+f = lambda a,b,c:[map(lambda x:(x%a==0 or (str(a) in str(x))) and "Fizz" or "",range(1,101))[i]+map(lambda x:(x%b==0 and not (str(a) in str(x)))and 'Bizz' or "",range(1,101))[i]+map(lambda x:(x%c==0 and not (str(a) in str(x)))and "Whizz" or "",range(1,101))[i] or i+1 for i in range(100)]
+print f(3,5,7)
+f = lambda a,b,c:[(str(a) in str(i) and  "Fizz") or ((i%a == 0 and "Fizz" or "")+(i%b == 0 and "Bizz" or "")+(i%c == 0 and "Whizz" or "")) or i for i in xrange(1,101)]
+print f(3,5,7)
+f = lambda a,b,c :["Fizz"*(str(a) in str(i)) or ("Fizz"*(i%a==0)+"Bizz"*(i%b==0) +"Whizz"*(i%c==0)) or i for i in range(1,101)]
+print f(3,5,7)
+
+
+print "hello" * 0   #结果为""
+print "hello" * 1   #结果为"hello"
+print "hello"*(not "hi")#结果为'',"hi"具有True含义,然后not之后为False,具有0含义
+print "hello"*(not {})#结果为hello,{}具有False含义,然后not之后为True,具有0含义
+
+"""
+以下为解释
+"""
+
+"""
 知识点:
 python中的逻辑运算符并不仅仅适用于True/False,而是适用于全部python里面存在的东西
 python中true的含义比如数字非0,string/tuple/list/dict等非空或者是function/class等等的时候,结果为yy
